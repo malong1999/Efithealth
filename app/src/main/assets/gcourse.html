@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title isback="1" btn="0" navbar="0" id="titleText"></title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<style>
+	::-webkit-scrollbar {
+			   width: 0;
+	}
+</style>
+<script type="text/javascript" src="js/jquery.min.js"></script><!--gcourseid=GC000042&memid=M000458-->
+    <script>
+        $(document).bind('mobileinit', function () {
+            $.mobile.pushStateEnabled = false;
+        });
+    </script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="application/javascript" src="js/iscroll.js"></script>
+<!--<script type="text/javascript" src="js/touchslider.js"></script>-->
+<script src="js/mframe.js"></script>
+</head>
+<body style="overflow: hidden;position: absolute;z-index: 1;width: 100%;height: 100%;">
+<div class="person_index"> </div>
+<div class="reserve_warn">您已预约全部课程</div>
+<div data-role="content" class="p_content" style="position: absolute;z-index: 1;">
+
+  <div id="slider" class="swipe cou_sw" <!--style="display: none;"-->>
+    <ul class="box01_list">
+      <li class="li_list">
+        <div class="video"> <a rel="external" data-role="none"><img src="images/page/zhanwei.png" onerror="nofind();" id="imgpfile"/></a> </div>
+        <div class="corder">
+          <p class="corder_title g_title" id="gcoursename"></p>
+          <span class="price" style="padding-right: 11px;"><i id="gcourseprice" name="gcourseprice" style="color: #969696;font-weight: normal;font-size: 16px;padding-top: 7px;"></i></span></div>
+        <div class="corder_name"><!--<i id="coachname">张宇星</i> | --><i id="clubname"></i></div>
+        <!--<div class="corder_star">
+			<div class="star_kong">
+				<img src="images/icon_xingxing_kongxin.png" />
+				<img src="images/icon_xingxing_kongxin.png" />
+				<img src="images/icon_xingxing_kongxin.png" />
+				<img src="images/icon_xingxing_kongxin.png" />
+				<img src="images/icon_xingxing_kongxin.png" />
+			</div>
+			<div class="star_shi">
+				<div style="width: 100px;">
+					<img src="images/icon_xingxing.png" />
+					<img src="images/icon_xingxing.png" />
+					<img src="images/icon_xingxing.png" />
+					<img src="images/icon_xingxing.png" />
+					<img src="images/icon_xingxing.png" />
+				</div>
+				
+			</div>
+			
+		</div>-->
+        <div class="hr1" style="margin-top: 24px;"></div>
+        <div id="datum-arr" class="mess-list">
+      	<a href="javascript:void(0);" class="click_club" rel="external" data-role="none" style="display:block;">
+			<p id="address"><span id="club_title" style="color:#D6D6D6 ;float: right;"></span></p>
+			<!--<img id="arrou" class="arrou" src="images/jiantou_botton_default.png" style="width: 18px;height: 18px;"/>--> </a>
+		<a id="tog" href="javascript:void(0);" rel="external" data-role="none" class="click_times"> <p><span class="tenper"><!--<em id="pcoursetimes">10次</em>/<em id="pcoursedays">2月</em>--><em id="begintime"></em></span><span id="coursetitle" style="float: right;color: #d6d6d6;"></span></p><img class="arrou" id="arrou" src="images/jiantou_botton_down.png" style="width: 18px;height: 18px.;"> </a>
+		<div id="togg">
+			<ul>
+				
+			</ul>
+		</div>
+		<a rel="external" data-role="none" class="click_tel">
+			<p id="conphone" href="tel:130111"></p>
+			<img class="arrou" src="images/jiantou_botton_default.png" style="width: 18px;height: 18px;">
+			<div class="hr1-cxl" style="border: 0 none;"></div>
+		</a>
+          <!--根据业务需要不要-->
+         <!-- <a  rel="external" data-role="none"> <span class="tenper"><i>10次</i id="gcoursetimes">/<i id="gcoursedays">2月</i></span> <img id="arrou" class="arrou"  src="images/arrow2.png"/></a>-->
+          <!--<a style="display: none;"  id="detailsurl" rel="external" data-role="none">
+            <p>点击查看图文介绍</p><img class="arrou" src="images/arrow2.png">
+          </a> -->
+        </div>
+        <div class="introduce notice">
+			<div class="title-cxl" style="float: left;padding-top: 24px;font-size:1.4em;color: #f17142;">下单须知：</div>
+			<div class="content notice_write">
+				<p id="resinform" style="width: 70%;float: left;color: #f17142;"></p>
+				
+			</div>
+			
+		</div>
+        <div class="qqq">
+          <div class="inset">
+            <p ><!--<i name="gcourseprice">凭会员卡免费预约</i>--></p>
+            <a href="javascript:void(0);" rel="external" data-role="none" >确认预约</a> </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">  /*http://127.0.0.1:8020/newAssets/gcourse.html?gcalid=G000052&memid=M000443 俱乐部团操*/
+/*
+ 图片加载失败处理
+ 乔丽娜 2016/9/20
+ * */
+function nofind(){
+	var img=event.srcElement; 
+	img.src="images/page/zhanwei.png"; 
+	img.onerror=null; //控制不要一直跳动 
+} 
+var memid = getMemid();
+var gcalid = parmData.gcalid;
+var lisnum;
+var emnum;
+$(document).ready(function() {
+		initData();
+		/*
+		 * 时间列表显示消失切换
+		 * */
+		$("#tog").click(function(){
+			if($("#arrou").attr("src")=="images/jiantou_botton_default.png")
+			   {
+				$("#arrou").attr("src","images/jiantou_botton_down.png");
+				$("#arrou").addClass("arrox");
+			   }
+			   else
+			   {
+				$("#arrou").attr("src","images/jiantou_botton_default.png");
+				$("#arrou").removeClass("arrox");
+			   }
+			   $("#togg").toggle();
+		})
+		
+		
+});
+function initData(){
+	$.ajax({
+        type: "POST", //请求方式
+        url: serviceUrl+"mclubGlessonList.do", //请求路径
+        cache: false,
+        data: {
+        	gcalid: gcalid,
+        	memid: memid
+        },
+        dataType: 'JSON',   //返回值类型
+        beforeSend:function(){
+			!window.mobile||window.mobile.Loading(true);
+		},
+        success: function (data) {
+            var msgFlag = data.msgFlag;
+            if (msgFlag == 1) {
+            	var gcalattr=data.gcallisth.gcalattr;
+            	var hasOrder=data.hasOrder;
+            	var gcourseprice=data.gcallisth.gcourseprice;
+            	if(gcourseprice == "0"){
+            		$("#gcourseprice").text("凭会员卡免费预约");
+            		
+            	}else{
+            		$("#gcourseprice").text(gcourseprice+"元")
+            	}
+            	if(gcalattr == "club"){
+            		if(hasOrder == 0){
+            			/*alertInfo("您还没有会籍订单");*/
+            			$(".inset a").attr("href","javascript:alertInfo('您还没有会籍订单,请去线下门店购买');");
+            		}else{
+            			$(".inset a").attr("href","javascript:lessonsave();");//生成预约
+            		}
+            		$(".introduce .title-cxl").text("预约须知：");
+            	}else{//coach
+            		if(hasOrder == 0){
+            			$(".inset a").text("购买课程");
+            			$(".introduce .title-cxl").text("下单须知：");
+            			$(".inset a").attr("href","javascript:gotoExe();");//
+            		}else{
+            			$(".introduce .title-cxl").text("预约须知：");
+            			$(".inset a").attr("href","javascript:lessonsave();")//生成预约	
+            		}
+            	}
+            	
+                var glessonList = data.glessonList;
+                $("#address").text(data.gcallisth.address);//俱乐部地址
+                $("#clubname").text(data.gcallisth.clubname);//俱乐部名称
+      			if(glessonList.length != 0){
+      				$("#imgpfile").attr("src", glessonList[0].imgpfilename);//课程图片
+      				$("#gcoursename").text(glessonList[0].gcalname);//课程名称
+      				$("#conphone").text(glessonList[0].conphone);//俱乐部电话
+      				$("title").text(glessonList[0].gcalname);
+      			}
+      			else{
+      				alertInfo("没有课节");
+      			}
+      			var mobphone = $("#conphone");
+                mobphone.parent("a").bind("click", function(){//绑定点击事件为调用原生拨打电话方法
+                	callUp(this, mobphone.text());
+                });
+                $("#resinform").text(data.gcallisth.resinform);
+                /*document.title = bGlesson.gcalname;*/
+                /*
+				//根据业务需求免费
+//     		    $("i[name=gcourseprice]").text(bGcourse.gcourseprice);
+                $("#coachname").text(bGlesson.coachname);//教练名称
+                $("#resinform").text(bClub.resinform);//须知
+                console.info(bGlesson.begintime);
+                $("#begintime").text(formatdate(bGlesson.begintime,"yyyy-MM-dd hh:mm"));
+                
+                */
+                //循环开始
+                var flag=true;
+		        $.each(data.glessonList,function(index,content){//初始化时间信息
+		        	var li = $("<li><a href='javascript:void(0);'><span id="+content.lessonid + ">" + content.begintimestr + "<span></a></li>");
+		        	$("#togg ul").append(li);
+		        	var coursetitle=$(".choosen span").text();
+		        	$("#begintime").text(coursetitle);
+		        	if(content.reserved == 1){//已预约
+		        		var em =$("<em>已预约</em>");
+		        		$("#"+content.lessonid).parent().append(em);
+		        		$("#"+content.lessonid).parent().css("background-image","url()");
+					//未预约
+		        	}else if(content.expried==1){//已过预约时间
+		        		var em =$("<em class='expried'>已过时间</em>");
+		        		$("#"+content.lessonid).parent().append(em);
+		        		$("#"+content.lessonid).parent().css("background-image","url()");
+		        	}else{
+		        		var lireserved=$("#"+content.lessonid).parent().parent();
+		        		
+						//可预约事件
+		        		lireserved.bind("click", function() {
+			        		$("#togg li").removeClass("choosen");
+			        		$(this).addClass("choosen");
+			        		var coursetitle=$(".choosen span").text();
+			        		$("#begintime").text(coursetitle);//选中时间显示
+		        		})
+		        		//第一条可预约的课节选中
+		        		if(flag){
+		        			lireserved.addClass("choosen");
+		        			var coursetitle=$(".choosen span").text();
+			        		$("#begintime").text(coursetitle);
+		        			flag=false;
+		        		}
+		        	}
+		        })
+		        lisnum=$("#togg ul li").length;
+		        emnum=$("#togg a em").length;
+		        expried=$("#togg .expried").length;
+		        if(emnum ===lisnum){
+		        	$("#begintime").text("您已预约全部课程");
+		        	$("#begintime").css("color","#f17142");
+		        	$(".qqq a").css("background-color","#aeaeae");
+		        }
+		        if(expried === lisnum){
+		        	$("#begintime").text("已无时间可预约");
+		        	$(".reserve_warn").text("已无时间可预约");
+		        	
+		        }
+            }
+           
+        },
+		complete:function(){
+			!window.mobile||window.mobile.Loading(false);
+		}
+    });		
+}
+function lessonsave(){
+	if(emnum ===lisnum){
+		$(".reserve_warn").show();
+		setTimeout(function(){$(".reserve_warn").hide();},1000);
+	 }else{
+	 	var lessonid=$(".choosen span").attr("id");
+	  	$.ajax({
+	  		type: "POST", //请求方式
+	        url: serviceUrl+"mbcorderlessonsave.do", //请求路径
+	        cache: false,
+	        data: {
+	        	memid: memid,
+	        	lessonid:lessonid
+	        },
+	        dataType: 'JSON',   //返回值类型
+	        success:function(data){
+	        	if (data.msgFlag == 1) {
+	        		$("#togg li").remove();
+	        		initData();
+					alertMessage("success","生成预约成功");
+					!window.mobile||window.mobile.gotoBespeakList();
+				}else{
+					alertInfo(data.msgContent);
+				}
+			}
+	    })
+	 }
+	
+}
+function gotoExe(){
+    var page = "courseBuy.html?mertype=gcourse&courseid="+gcalid+"&memid="+getMemid();
+    createNewWindow(page);
+}
+</script>
+</body>
+</html>

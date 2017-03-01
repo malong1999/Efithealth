@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context="com.maxiaobu.healthclub.ui.activity.ClubListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_common"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mql_actionbar_height"
+            android:background="@color/colorPrimary"
+            app:collapseIcon="@mipmap/ic_navigation_icon"
+            app:navigationIcon="@mipmap/ic_navigation_icon"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+
+            <TextView
+                android:id="@+id/tv_title_common"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/mql_actionbar_height">
+        <!--顶部筛选-->
+        <LinearLayout
+            android:id="@+id/ly_select_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#262626"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/sz_4"
+            android:paddingTop="@dimen/sz_4"
+            >
+
+            <LinearLayout
+                android:id="@+id/ry_select"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_32"
+                android:layout_marginBottom="@dimen/sz_6"
+                android:layout_marginLeft="@dimen/sz_20"
+                android:layout_marginRight="@dimen/sz_20"
+                android:layout_marginTop="@dimen/sz_6"
+                android:background="@drawable/bg_catering_select_default"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_menu_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="排序"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sz_16"/>
+
+                <ImageView
+                    android:id="@+id/iv_menu_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/sz_6"
+                    android:src="@mipmap/ic_lunch_arrow_default"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipeToLoadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ly_select_root">
+
+            <com.maxiaobu.healthclub.ui.weiget.refresh.RefreshHeaderView
+                android:id="@+id/swipe_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/swipe_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.maxiaobu.healthclub.ui.weiget.refresh.LoadMoreFooterView
+                android:id="@id/swipe_load_more_footer"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"/>
+        </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ly_select_root"
+            android:background="#e0000000"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_82"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:visibility="visible"
+        app:mrl_rippleAlpha="0.1"
+        android:descendantFocusability="afterDescendants"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleDimension="10dp"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sz_82">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/avatar"
+                android:layout_width="@dimen/sz_60"
+                android:layout_height="@dimen/sz_60"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/sz_10"
+                android:src="@mipmap/ic_person_default"/>
+
+            <RelativeLayout
+                android:layout_marginRight="@dimen/sz_70"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/sz_18"
+                android:layout_toRightOf="@id/avatar">
+
+                <TextView
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sz_16"
+                    tools:text="测试群"/>
+
+                <TextView
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/single"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name"
+                    android:layout_marginTop="@dimen/sz_10"
+                    android:textColor="#8C8C8C"
+                    android:textSize="@dimen/sz_14"
+                    tools:text="不知道字段"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/classify_text"
+                android:textSize="@dimen/sz_12"
+                android:textColor="@color/gray"
+                android:layout_marginTop="@dimen/sz_20"
+                android:layout_marginRight="@dimen/sz_20"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="减脂"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+</RelativeLayout>

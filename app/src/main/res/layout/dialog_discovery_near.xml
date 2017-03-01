@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:segmentcontrol="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_46"
+        android:gravity="center"
+        android:text="筛选"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sz_16"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginLeft="@dimen/sz_14"
+        android:layout_marginRight="@dimen/sz_14"
+        android:background="@color/gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sz_14"
+            android:layout_marginRight="@dimen/sz_16"
+            android:layout_marginTop="@dimen/sz_24"
+            android:text="身份"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sz_14"/>
+
+        <com.maxiaobu.healthclub.ui.weiget.segmentcontrol.SegmentControl
+            android:id="@+id/seg_control_memrole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/sz_10"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginTop="@dimen/sz_20"
+            segmentcontrol:colors="@color/colorOrange"
+            segmentcontrol:cornerRadius="15dp"
+            segmentcontrol:direction="horizon"
+            segmentcontrol:horizonGap="11dp"
+            segmentcontrol:texts="全部|会员|教练|俱乐部"
+            segmentcontrol:verticalGap="@dimen/sz_8"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sz_14"
+            android:layout_marginRight="@dimen/sz_16"
+            android:layout_marginTop="@dimen/sz_24"
+            android:text="性别"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sz_14"/>
+
+        <com.maxiaobu.healthclub.ui.weiget.segmentcontrol.SegmentControl
+            android:id="@+id/seg_control_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/sz_10"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginTop="@dimen/sz_20"
+            segmentcontrol:colors="@color/colorOrange"
+            segmentcontrol:cornerRadius="15dp"
+            segmentcontrol:direction="horizon"
+            segmentcontrol:horizonGap="48dp"
+            segmentcontrol:texts="男士|女士"
+            segmentcontrol:verticalGap="8dp"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_marginTop="@dimen/sz_10"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginLeft="@dimen/sz_14"
+        android:layout_marginRight="@dimen/sz_14"
+        android:background="@color/gray"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_44">
+
+        <TextView
+            android:id="@+id/dialog_pos"
+            android:layout_width="@dimen/sz_70"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/sz_10"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sz_16"
+            />
+
+        <TextView
+            android:id="@+id/dialog_cancle"
+            android:layout_width="@dimen/sz_70"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/sz_6"
+            android:layout_toLeftOf="@id/dialog_pos"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sz_16"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

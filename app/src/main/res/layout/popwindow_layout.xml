@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/pop_layout"
+              android:gravity="bottom"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:id="@+id/pop_delete"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            android:textColor="#5E96F8"
+            android:background="@drawable/bg_pop_menu"/>
+
+        <Button
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:id="@+id/pop_send"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="举报"
+            android:textColor="#5E96F8"
+            android:background="@drawable/bg_pop_menu"/>
+
+        <Button
+            android:layout_marginBottom="@dimen/sz_30"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:id="@+id/pop_cancel"
+            android:textColor="#5E96F8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sz_10"
+            android:text="取消"
+            android:background="@drawable/bg_pop_menu"/>
+
+    </LinearLayout>
+
+</LinearLayout>

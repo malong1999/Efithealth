@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:id="@+id/container"
+                android:background="@drawable/button_rect_list_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ImageView
+        tools:background="@mipmap/ic_person_default"
+        android:id="@+id/item_comment_image"
+        android:scaleType="fitXY"
+        android:layout_width="@dimen/sz_28"
+        android:layout_height="@dimen/sz_28"
+        android:layout_marginLeft="@dimen/sz_22"
+        android:layout_marginTop="@dimen/sz_14"/>
+
+    <TextView
+        android:id="@+id/item_comment_name"
+        android:layout_marginTop="@dimen/sz_16"
+        android:layout_marginLeft="@dimen/sz_8"
+        android:layout_toRightOf="@id/item_comment_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="这个人很懒"
+        android:textSize="@dimen/sz_12"/>
+
+    <TextView
+        android:id="@+id/item_comment_time"
+        android:layout_marginTop="@dimen/sz_2"
+        android:layout_below="@id/item_comment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="16小时前"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/sz_10"
+        android:layout_marginLeft="@dimen/sz_8"
+        android:layout_toRightOf="@id/item_comment_image"/>
+
+    <TextView
+        android:id="@+id/item_comment_content"
+        android:layout_marginRight="@dimen/sz_30"
+        android:textSize="@dimen/sz_12"
+        android:layout_marginBottom="@dimen/sz_12"
+        tools:text="这里是留言文本这里是留言文本这里是留言文本这里是留言文本这里是留言文本这里是留言文本这里是留言文本"
+        android:layout_marginTop="@dimen/sz_10"
+        android:layout_below="@id/item_comment_time"
+        android:layout_marginLeft="@dimen/sz_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_comment_image"/>
+
+    <View
+        android:layout_below="@id/item_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray"/>
+</RelativeLayout>

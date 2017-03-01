@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_common"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:collapseIcon="@mipmap/ic_navigation_icon"
+            app:navigationIcon="@mipmap/ic_navigation_icon"
+            android:theme="@style/Theme.ToolBar.Menu">
+
+            <TextView
+                android:id="@+id/tv_title_common"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/iv_user_image"
+            android:layout_marginTop="@dimen/sz_36"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/sz_84"
+            android:layout_height="@dimen/sz_84"
+            android:src="@mipmap/ic_place_holder"/>
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_marginTop="@dimen/sz_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名称"
+            android:textSize="@dimen/sz_14"
+            android:textColor="@color/black"
+            android:layout_below="@id/iv_user_image"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv_user_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/sz_24"
+            android:layout_width="@dimen/sz_250"
+            android:layout_height="@dimen/sz_250"
+            android:scaleType="fitXY"
+            android:layout_below="@id/tv_user_name"/>
+    </RelativeLayout>
+</LinearLayout>

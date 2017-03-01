@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title isback="1" navbar="0" btn="0" >收支明细</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+$(document).bind('mobileinit', function () {
+    $.mobile.pushStateEnabled = false;
+});
+</script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/mframe.js"></script>
+</head>
+<body>
+	<div data-role="page" data-enhance="true" style="background: #f5f5f5;">
+		<div id="paymentDetails" class="box_pay" data-role="content" style="text-shadow: none;">
+			<dl id="bYcoinInouts" style="display: none;">
+				<dt>2月</dt>
+			</dl>
+		</div>
+	</div>
+	<script>
+		var pageindex = 1;
+		var memid = getMemid();
+//		http://127.0.0.1:8020/newAssets/paymentDetails.html?memid=M000455
+		var dl = $("#bYcoinInouts");//月收支列表
+		function initData(){
+			$.ajax({
+		            type: "POST", //请求方式
+		            url: serviceUrl+"maccount.do", //请求路径
+		            cache: false,
+		            data: {
+		                pageIndex: pageindex,//当前页码
+		                memid: memid//当前用户id
+		            },
+		            dataType: 'JSON',   //返回值类型
+		            beforeSend: function() {
+						!window.mobile || window.mobile.Loading(true);
+					},
+		            success: function (data){
+		            	var msgFlag = data.msgFlag;
+		                if (msgFlag == 1) {
+		                	var thisMonth = new Date().getMonth()+1;//本月
+		                	console.log(thisMonth);
+		                	var bYcoinInoutlist = data.bYcoinInoutlist;
+		                	if(bYcoinInoutlist.length==0){
+		                		var picIn=$("<div><img src='images/page/wudingdan.png' /><p>暂无收支明细</p><div>")
+		                		picIn.appendTo("#paymentDetails");
+		                	}
+		                	 //循环加载列表数据
+		                    $.each(bYcoinInoutlist, function (index, content) {
+		                    	var inoutType = content.inouttype;
+		                        if(inoutType!=""){//判断收入还是支出
+		                        	inoutType=inoutType=="in"?"+":"-";
+		                        }
+		                        var month=content.createtime.month+1//收支月份
+		                    	var time=month+"/"+content.createtime.date;//收支日期
+		                    	var maintitle=content.maintitle;//收支内容
+		                    	var ycoininoutnumtotal=inoutType+content.ycoininoutnumtotal//收支金额
+		                    	var dd = $("<dd class='dd'><i>"+time+"</i><em>"+maintitle+"</em><span>"+ycoininoutnumtotal+"</span></dd>");
+		                    	
+		                    	//处理月份dt
+		                    	if(dl.attr("name")!=month){//当此条数据月份与列表月份不同则新创建列表
+		                    		dl = $("#bYcoinInouts").clone();
+		                    		dl.attr("name",month);
+		                    		//如与本月月份相同则显示「本月」,否则直接显示数字即可
+		                    		dl.find("dt").text((month==thisMonth?"本":(month+" "))+"月");
+		                    		dl.appendTo("#paymentDetails");
+		                    		dl.show();
+		                    	}
+		                    	dl.append(dd);
+		                    	/*$("#bYcoinInouts dt").text(newMonth+"月");
+		                    	$("#bYcoinInouts").attr("name","month"+newMonth);
+		                    	var months="month"+month;
+		                        $("dl[name="+months+"]").append(dd);
+		                        console.log($("dl[name="+months+"]"));*/
+		                    });
+		                }        
+		            },
+		  			complete: function() {
+						!window.mobile || window.mobile.Loading(false);
+					}
+			   });
+		}
+		window.onload=function(){
+			initData();
+		}
+	</script>
+</body>
+</html>

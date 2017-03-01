@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/mrlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_80"
+        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        android:padding="@dimen/sz_4">
+
+    <RelativeLayout
+        android:background="@color/grayBackgroud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/iv_student_image"
+            android:layout_marginRight="@dimen/sz_16"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_width="@dimen/sz_54"
+            android:layout_height="@dimen/sz_54"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/iv_student_image"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/sz_40"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_student_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张宇星"
+                android:textSize="@dimen/sz_14"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_student_sign"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/sz_8"
+                android:textSize="@dimen/sz_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刚刚推出减脂10套餐，欢迎朋友们"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray"
+            />
+    </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+</LinearLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/common_title"/>
+
+    <RelativeLayout
+        android:id="@+id/premissions_public"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_70">
+
+        <CheckBox
+            android:buttonTint="@color/colorTextSecondary"
+            android:id="@+id/premissions_public_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/sz_10"/>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/premissions_public_checkbox"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/sz_16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公开"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/sz_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加标签"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorTextThird"/>
+
+
+    <RelativeLayout
+        android:id="@+id/premissions_friend"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_70">
+
+        <CheckBox
+            android:buttonTint="@color/colorTextSecondary"
+            android:id="@+id/premissions_friend_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/sz_10"/>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/premissions_friend_checkbox"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/sz_16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="好友圈"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/sz_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加标签"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorTextThird"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/premissions_mine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_70">
+
+        <CheckBox
+            android:buttonTint="@color/colorTextSecondary"
+            android:id="@+id/premissions_mine_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/sz_10"/>
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/premissions_mine_checkbox"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/sz_16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="仅自己可见"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorTextThird"/>
+</LinearLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:descendantFocusability="blocksDescendants"
+                android:gravity="center_vertical">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/group_layout"
+        android:background="@android:color/white"
+        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        android:visibility="gone"
+        app:mrl_rippleDimension="10dp">
+
+        <RelativeLayout
+            android:id="@+id/group_rl"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="#fff"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:id="@+id/group_container"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_talk_group"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                android:text="群列表"
+                android:layout_toRightOf="@id/group_container"
+                android:textColor="@color/list_itease_primary_color"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_right"
+                android:id="@+id/imageView4"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="#dedede"/>
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_below="@id/group_layout"
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_height="85dp"
+        android:background="@android:color/white"
+        android:focusable="false"
+        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleColor="#585858"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleDimension="10dp"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/list_itease_layout"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="#fff"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:id="@+id/avatar_container"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ease_default_avatar"/>
+
+                <TextView
+                    android:id="@+id/unread_msg_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ease_unread_count_bg"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginRight="100dp"
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/avatar_container"
+                android:textColor="@color/list_itease_primary_color"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/list_itease_secondary_color"
+                android:textSize="13sp"/>
+
+            <ImageView
+                android:id="@+id/msg_state"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="7dp"
+                android:layout_toRightOf="@id/avatar_container"
+                android:src="@drawable/ease_msg_state_fail_resend"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/mentioned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/msg_state"
+                android:paddingBottom="17dp"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:text="@string/were_mentioned"
+                android:textColor="#e84e40"
+                android:textSize="14sp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:layout_toLeftOf="@id/time"
+                android:layout_toRightOf="@id/mentioned"
+                android:ellipsize="end"
+                android:padding="7dp"
+                android:singleLine="true"
+                android:textColor="@color/list_itease_secondary_color"
+                android:textSize="14sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="#dedede"/>
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+</RelativeLayout>

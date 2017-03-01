@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/ly_foot"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/sz_46"
+    android:background="@color/grayBackgroud">
+<ImageView
+    android:layout_width="@dimen/sz_16"
+    android:layout_height="@dimen/sz_16"
+    android:src="@mipmap/ic_data_entry_add"
+    android:layout_gravity="center"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray"
+        android:layout_gravity="bottom"/>
+</FrameLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="wrap_content"
+                                                 android:orientation="vertical"
+                                                 android:padding="@dimen/sz_2">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sz_4"
+        android:layout_marginLeft="@dimen/sz_8"
+        android:layout_marginRight="@dimen/sz_8"
+        android:layout_marginTop="@dimen/sz_10"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/sz_10"
+        >
+
+        <LinearLayout
+            android:id="@+id/ly_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/sz_6">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/sz_10">
+
+                <ImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="@dimen/sz_80"
+                    android:layout_height="@dimen/sz_80"
+                    android:scaleType="fitXY"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_title"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginTop="@dimen/sz_10"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:text="教练"
+                    android:textColor="@color/colorTextThird"
+                    android:textSize="@dimen/sz_16"/>
+
+                <TextView
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:id="@+id/tv_title"
+                    android:layout_marginRight="@dimen/sz_100"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/sz_18"
+                    tools:text="张兴宇"/>
+
+                <TextView
+                    android:id="@+id/tv_complete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="待预约"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sz_18"/>
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_complete"
+                    android:layout_marginTop="@dimen/sz_6"
+                    android:text="共计: 100元"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/sz_18"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@id/tv_content"
+                    android:layout_marginTop="@dimen/sz_10"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:background="@color/gray"/>
+
+                <TextView
+                    android:id="@+id/tv_course_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_content"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginTop="@dimen/sz_20"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:text="增肌简直操"
+                    />
+                <TextView
+                    android:id="@+id/tv_club_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_course_name"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginTop="@dimen/sz_6"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:text="上海徐家汇健身俱乐部"
+                    />
+                <TextView
+                    android:id="@+id/tv_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_club_name"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginTop="@dimen/sz_6"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:text="截至日期2016/12/12"
+                    />
+                <TextView
+                    android:id="@+id/tv_residue_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_end_time"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginTop="@dimen/sz_6"
+                    android:layout_toRightOf="@id/iv_photo"
+                    android:text="剩余12次"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/sz_10"
+                android:layout_marginLeft="@dimen/sz_4"
+                android:layout_marginRight="@dimen/sz_4"
+                android:background="@color/gray"/>
+
+            <Button
+                android:id="@+id/tv_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_34"
+                android:background="@drawable/bg_food_order_select"
+                android:gravity="center"
+                tools:text="现在预约"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sz_18"
+                />
+            <LinearLayout
+                android:id="@+id/ly_nopay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:id="@+id/tv_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_food_order_select"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/sz_6"
+                    android:paddingBottom="@dimen/sz_6"
+                    android:text="继续支付"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sz_18"/>
+
+                <TextView
+                    android:id="@+id/tv_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/sz_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_food_cart_select"
+                    android:gravity="center"
+                    android:text="删除"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sz_18"
+                    android:paddingTop="@dimen/sz_6"
+                    android:paddingBottom="@dimen/sz_6"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</android.support.design.widget.CoordinatorLayout>

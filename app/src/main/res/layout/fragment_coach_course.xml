@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/white"
+              tools:context=".ui.fragment.CoachCourseFragment"
+    >
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nest_scroll_view"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <View
+                android:id="@+id/view_personal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_16"
+                android:background="@color/grayBackgroud"/>
+
+            <TextView
+                android:id="@+id/tv_personal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/sz_10"
+                android:paddingLeft="@dimen/sz_20"
+                android:paddingTop="@dimen/sz_6"
+                android:text="私教"
+                android:textColor="@color/colorTextThird"
+                android:textSize="@dimen/sz_16"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_personal"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+
+            <View
+                android:id="@+id/view_group"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_16"
+                android:background="@color/grayBackgroud"/>
+
+            <TextView
+                android:id="@+id/tv_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/sz_10"
+                android:paddingLeft="@dimen/sz_20"
+                android:paddingTop="@dimen/sz_6"
+                android:text="团操"
+                android:textColor="@color/colorTextThird"
+                android:textSize="@dimen/sz_16"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_group"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

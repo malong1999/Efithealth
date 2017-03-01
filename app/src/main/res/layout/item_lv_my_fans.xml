@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="@drawable/button_rect_list_normal"
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sz_80"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="@dimen/sz_54"
+            android:layout_height="@dimen/sz_54"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_marginRight="@dimen/sz_16"
+            tools:background="@mipmap/ic_person_default"/>
+
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/sz_110"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/item_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="会员名"/>
+
+            <TextView
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:id="@+id/item_single"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sz_8"
+                tools:text="暂无签名"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/sz_12"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_mutual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/sz_20"
+            android:background="@drawable/bg_my_friend_press"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/sz_6">
+
+            <ImageView
+                android:id="@+id/item_mutual_image"
+                android:layout_width="@dimen/sz_14"
+                android:layout_height="@dimen/sz_16"
+                android:layout_marginRight="@dimen/sz_2"
+                android:src="@mipmap/ic_add"/>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/item_mutual_text"
+                android:layout_width="@dimen/sz_50"
+                android:layout_height="wrap_content"
+                android:text="关注"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sz_12"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+                android:background="@color/white"
+              android:layout_height="match_parent">
+
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/swipeToLoadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ly_select_root">
+
+        <com.maxiaobu.healthclub.ui.weiget.refresh.RefreshHeaderView
+            android:id="@+id/swipe_refresh_header"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"/>
+
+       <ListView
+           android:id="@+id/swipe_target"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
+
+        <com.maxiaobu.healthclub.ui.weiget.refresh.LoadMoreFooterView
+            android:id="@id/swipe_load_more_footer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"/>
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/ly_no_conversation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:src="@mipmap/ic_socialrel"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_view"
+            android:layout_centerHorizontal="true"
+            android:text="暂无好友信息"
+            android:textColor="@color/black_deep"
+            android:textSize="14dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

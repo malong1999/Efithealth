@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context="com.maxiaobu.healthclub.ui.activity.DataEntryActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_common"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:collapseIcon="@mipmap/ic_navigation_icon"
+            app:navigationIcon="@mipmap/ic_navigation_icon"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+
+            <TextView
+                android:id="@+id/tv_title_common"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/tv_title_save"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/sz_10"
+                android:padding="@dimen/sz_10"
+                android:text="保存"
+                android:textColor="@android:color/white"/>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_left"
+        android:layout_width="@dimen/sz_94"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/sz_94"
+        android:layout_marginTop="?actionBarSize"
+        android:background="@color/white"/>
+
+    <FrameLayout
+        android:id="@+id/fl_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_select"
+        android:background="#e0000000"
+        android:clickable="true"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_56"
+                android:gravity="center"
+                android:textSize="@dimen/sz_18"
+                tools:text="圆环运动4组"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray"/>
+
+            <!--数量-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_66"
+                >
+
+                <TextView
+                    android:id="@+id/tv_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/sz_30"
+                    android:gravity="center_vertical"
+                    android:text="数量/个："
+                    android:textColor="@color/colorTextThird"
+                    android:textSize="@dimen/sz_16"/>
+
+                <ImageView
+                    android:id="@+id/iv_times_add"
+                    android:layout_width="@dimen/sz_30"
+                    android:layout_height="@dimen/sz_30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginRight="@dimen/sz_20"
+                    android:background="@drawable/bg_food_add_select"/>
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/tv_times_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/iv_times_add"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:minWidth="@dimen/sz_44"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/sz_10"
+                    android:paddingRight="@dimen/sz_10"
+                    android:text="1"
+                    android:textSize="@dimen/sz_18"/>
+
+                <ImageView
+                    android:id="@+id/iv_times_reduce"
+                    android:layout_width="@dimen/sz_30"
+                    android:layout_height="@dimen/sz_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/sz_10"
+                    android:layout_toLeftOf="@id/tv_times_num"
+                    android:background="@drawable/bg_food_reduce_select"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray"/>
+
+            <!--负重-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_66"
+                >
+
+                <TextView
+                    android:id="@+id/tv_strength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/sz_30"
+                    android:gravity="center_vertical"
+                    android:text="负重/kg："
+                    android:textColor="@color/colorTextThird"
+                    android:textSize="@dimen/sz_16"/>
+
+                <ImageView
+                    android:id="@+id/iv_strength_add"
+                    android:layout_width="@dimen/sz_30"
+                    android:layout_height="@dimen/sz_30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginRight="@dimen/sz_20"
+                    android:background="@drawable/bg_food_add_select"/>
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/tv_strength_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/iv_strength_add"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:minWidth="@dimen/sz_44"
+
+                    android:paddingLeft="@dimen/sz_10"
+                    android:paddingRight="@dimen/sz_10"
+                    android:text="1"
+                    android:textSize="@dimen/sz_18"/>
+
+                <ImageView
+                    android:id="@+id/iv_strength_reduce"
+                    android:layout_width="@dimen/sz_30"
+                    android:layout_height="@dimen/sz_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/sz_10"
+                    android:layout_toLeftOf="@id/tv_strength_num"
+                    android:background="@drawable/bg_food_reduce_select"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_90"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sz_44"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/sz_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_food_cart_select"
+                    android:gravity="center"
+                    android:padding="@dimen/sz_10"
+                    android:text="取消"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sz_16"/>
+
+                <TextView
+                    android:id="@+id/tv_save"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sz_44"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/sz_20"
+                    android:layout_marginRight="@dimen/sz_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_food_order_select"
+                    android:gravity="center"
+                    android:padding="@dimen/sz_10"
+                    android:text="保存"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sz_16"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</FrameLayout>

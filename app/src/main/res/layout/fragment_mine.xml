@@ -1,0 +1,59 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/ly_root"
+             android:background="#FAFAFA"
+             tools:context="com.maxiaobu.healthclub.ui.fragment.MineFragment">
+
+    <com.maxiaobu.healthclub.ui.weiget.pulltozoom.ECPullToZoomScrollViewToolbarEx
+        android:id="@+id/fragment_mine_pulltozoom_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        android:scrollbars="none"/>
+
+
+    <RelativeLayout
+        android:id="@+id/toolbar_backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:alpha="0"
+        android:background="@android:color/transparent"/>
+
+    <RelativeLayout
+        android:id="@+id/toolbar_common"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/tv_title_common"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/fragment_mine_code"
+            android:layout_width="@dimen/sz_28"
+            android:layout_marginRight="20dp"
+            android:layout_height="@dimen/sz_28">
+
+            <ImageView
+                android:id="@+id/mine_image"
+                android:layout_width="@dimen/sz_20"
+                android:layout_height="@dimen/sz_20"
+                android:src="@mipmap/ic_mine_two_code"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

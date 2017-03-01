@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title isback="1" navbar="0" btn="0" >余额</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+$(document).bind('mobileinit', function () {
+    $.mobile.pushStateEnabled = false;
+});
+</script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/mframe.js"></script>
+</head>
+<body>
+	<div data-role="page" style="background: #f5f5f5;text-shadow: none;">
+		<div class="balance">
+			<div class="balance_title">
+				<img id="imgsfilename" src="images/icon_user.png"/><em id="nickname"></em>
+			</div>
+			<div class="balance_list">
+				<a href="javascript:void(0);" rel="external" data-role="none">
+				<p><em>余额</em><em id="ycoinnum" style="float: right;margin-right: 14px;"></em></p>
+				</a>
+				<!--<a href="javascript:gotoPay();" rel="external" data-role="none" >
+					<p><em>充值</em><img class="arrou" src="images/jiantou_botton_default.png" style="width: 18px;height: 18px;"></p>
+				</a>
+				<a href="javascript:void(0);" rel="external" data-role="none">
+					<p><em>提现</em><img class="arrou" src="images/jiantou_botton_default.png" style="width: 18px;height: 18px;"></p>
+				</a>-->
+				<a href="javascript:gotoPaydetails();" rel="external" data-role="none" >
+					<p><em>收支明细</em><img class="arrou" src="images/jiantou_botton_default.png" style="width: 18px;height: 18px;"></p>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+</body>
+<script>
+var memid = getMemid();
+function gotoPay(){
+	!window.mobile||window.mobile.gotoPay();
+}
+function gotoPaydetails(){
+	 var page = "paymentDetails.html?memid="+memid;
+	 createNewWindow(page);
+}
+function initData(){
+	$("#imgsfilename").attr("src",parmData.imgsfilename);
+	$("#nickname").text(parmData.nickname);
+	$("#ycoinnum").text(parmData.ycoinnum);
+}
+window.onload=function(){
+	initData();
+}
+</script>
+</html>

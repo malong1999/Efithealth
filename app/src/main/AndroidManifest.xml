@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.maxiaobu.healthclub">
+
+    <uses-sdk android:minSdkVersion="8"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <permission
+        android:name="com.maxiaobu.healthclub.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature"/>
+    <!-- 这里com.xiaomi.mipushdemo改成app的包名 -->
+    <uses-permission android:name="com.maxiaobu.healthclub.permission.MIPUSH_RECEIVE"/>
+    <!-- 这里com.xiaomi.mipushdemo改成app的包名 -->
+    <!-- 分享 -->
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+
+    <!-- 分享 -->
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 设置环信应用的appkey "syjsdz#efithealthtest" -->
+        <!-- 设置环信应用的appkey "syjsdz#efithealthouttest" -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="syjsdz#efithealth"/>
+        <!-- 声明sdk所需的service -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"/>
+        <service
+            android:name=".service.UpdataService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver android:name=".chat.receiver.StartServiceReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.DownloadCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.EnterDoorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_BROADCAST"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <!-- 声明sdk所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 百度地图所需的service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="com.baidu.location.service_v2.2" > -->
+            <!-- </action> -->
+            <!-- </intent-filter> -->
+        </service>
+        <!-- xT73Im7F5TYgGIo9HhhBuh1XSe2Gx34p -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="3ecea51f560650b1ed8a4b99808f52e8"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58393d61aed1791afd0014b6"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="efithealth"/>
+
+        <!-- alipay sdk begin -->
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+
+        <!-- alipay sdk end -->
+        <activity
+            android:name="maxiaobu.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="maxiaobu.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 测试用 -->
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 主界面 -->
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Home">
+        </activity>
+        <!-- 闪屏页 -->
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/GuideTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- 登录页 -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme">
+        </activity>
+        <!-- 引导页 -->
+        <activity
+            android:name=".ui.activity.GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/GuideTheme"/>
+        <!-- 注册页一 -->
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Translucent"/>
+        <!-- 注册页二 -->
+        <activity
+            android:name=".ui.activity.RegisterTwoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Translucent">
+        </activity>
+        <!-- 找回密码 -->
+        <activity
+            android:name=".ui.activity.FindPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Translucent">
+        </activity>
+        <!-- 找回密码二 -->
+        <activity
+            android:name=".ui.activity.FindPasswordTwoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Translucent">
+        </activity>
+
+        <!-- 配餐列表 -->
+        <activity
+            android:name=".ui.activity.CateringListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 配餐详情 -->
+        <activity
+            android:name=".ui.activity.CateringDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- 配餐订单确认 -->
+        <activity
+            android:name=".ui.activity.CateringOrderConfirmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 修改地址 -->
+        <activity
+            android:name=".ui.activity.RevampAddress"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 支付页 -->
+        <activity
+            android:name=".ui.activity.PayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 订单列表 -->
+        <activity
+            android:name=".ui.activity.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 订餐订单详情 -->
+        <activity
+            android:name=".ui.activity.FoodOrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 修改订餐收货地址 -->
+        <activity
+            android:name=".ui.activity.ModifyOrderAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 教练列表 -->
+        <activity
+            android:name=".ui.activity.CoachesListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 教练+会员个人页 -->
+        <activity
+            android:name=".ui.activity.PersionalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 会话聊天界面 -->
+        <activity
+            android:name=".ui.activity.ChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 群详情 -->
+        <activity
+            android:name=".ui.activity.GroupDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 没用 -->
+        <activity
+            android:name=".ui.activity.ChatRoomDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 没用 -->
+        <activity
+            android:name=".ui.activity.ContextMenuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyle">
+        </activity>
+        <!-- 没用 -->
+        <activity
+            android:name=".ui.activity.ImageGridActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 环信 -->
+        <activity
+            android:name=".chat.ui.VideoCallActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 环信 -->
+        <activity
+            android:name=".chat.ui.VoiceCallActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 私教详情 -->
+        <activity
+            android:name=".ui.activity.PersionalCourseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 确认订单 -->
+        <activity
+            android:name=".ui.activity.CourseBuyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 预约 -->
+        <activity
+            android:name=".ui.activity.ReservationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 我的预约 -->
+        <activity
+            android:name=".ui.activity.MyBespeakActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 申请认证 -->
+        <activity
+            android:name=".ui.activity.CoachcertApplyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 俱乐部列表 -->
+        <activity
+            android:name=".ui.activity.ClubListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 绑定俱乐部列表 -->
+        <activity
+            android:name=".ui.activity.BindClubListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 俱乐部详情 -->
+        <activity
+            android:name=".ui.activity.ClubDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 课程管理 -->
+        <activity
+            android:name=".ui.activity.CourseManageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 上线课程 -->
+        <activity
+            android:name=".ui.activity.CoachesOnlineManageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+        </activity>
+        <!-- 下线的课程管理 -->
+        <activity
+            android:name=".ui.activity.CoachesHistoryManageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+        </activity>
+        <!-- 发布课程 -->
+        <activity
+            android:name=".ui.activity.CourseReleaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+        </activity>
+        <!-- 我的教学预约 -->
+        <activity
+            android:name=".ui.activity.MineTeachingAppointmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 档期管理 -->
+        <activity
+            android:name=".ui.activity.ScheduleManagementActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 申请绑定俱乐部 -->
+        <activity
+            android:name=".ui.activity.ApplyBindClubActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 团操课程 -->
+        <activity
+            android:name=".ui.activity.WeekCourseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 数据录入 -->
+        <activity
+            android:name=".ui.activity.DataEntryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+        </activity>
+        <!-- 团操详情 -->
+        <activity
+            android:name=".ui.activity.GcourseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 评价 -->
+        <activity
+            android:name=".ui.activity.EvaluateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 余额 -->
+        <activity
+            android:name=".ui.activity.BalanceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 个人信息编辑页 -->
+        <activity
+            android:name=".ui.activity.UserEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+        <!-- 收支明细 -->
+        <activity
+            android:name=".ui.activity.BalanceDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 我的学员 -->
+        <activity
+            android:name=".ui.activity.MyStudentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+        <!-- 我的会员卡 -->
+        <activity
+            android:name=".ui.activity.MyCardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 我的跳转的扫描二维码 -->
+        <activity
+            android:name=".ui.activity.MyCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 扫描二维码 -->
+        <activity
+            android:name=".ui.activity.ScanCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- webviewActivity -->
+        <activity
+            android:name=".ui.activity.WebActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 配送详情 -->
+        <activity
+            android:name=".ui.activity.DistributionDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 群列表 -->
+        <activity
+            android:name=".ui.activity.GroupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 卡包 -->
+        <activity
+            android:name=".ui.activity.ScanCardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 进门门禁 -->
+        <activity
+            android:name=".ui.activity.EnterDoorActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 群二维码 -->
+        <activity
+            android:name=".ui.activity.GroupCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 群资料管理 -->
+        <activity
+            android:name=".ui.activity.GroupInformation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+        <!-- 群成员管理 -->
+        <activity
+            android:name=".ui.activity.GroupMemberActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- 群申请列表 -->
+        <activity
+            android:name=".ui.activity.GroupEnterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 群成员 -->
+        <activity
+            android:name=".ui.activity.GroupAllMemberActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- 加入群 -->
+        <activity
+            android:name=".ui.activity.InviteGroupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true"
+            android:process=":pushservice"/>
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":pushservice"/>
+        <!-- 注：此service必须在3.0.1版本以后（包括3.0.1版本）加入 -->
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true"/>
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true"/>
+        <!-- 注：此service必须在2.2.5版本以后（包括2.2.5版本）加入 -->
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false"
+            android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.DemoMessageReceiver"
+            android:exported="true">
+
+            <!-- 这里com.xiaomi.mipushdemo.DemoMessageRreceiver改成app中定义的完整类名 -->
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 微信分享 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- QQ经典版分享 -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1105737533"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 分享编辑页(只有新浪微博精简版，豆瓣人人腾讯微博需要)： -->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault"/>
+
+        <!-- 发表动态页 -->
+        <activity
+            android:name=".ui.activity.SendDynamicActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+
+        <!-- 动态详情 -->
+        <activity
+            android:name=".ui.activity.DynamicCommentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 动态图片全屏预览页 -->
+        <activity
+            android:name=".ui.activity.ImageCheckActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 点赞列表 -->
+        <activity
+            android:name=".ui.activity.PointsListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- “我的”里——我的好友 -->
+        <activity
+            android:name=".ui.activity.MyFriendActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 粉丝列表 -->
+        <activity
+            android:name=".ui.activity.MyFansActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 关注列表 -->
+        <activity
+            android:name=".ui.activity.MyAttentionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 发送动态时的动态权限页 ： 公开、仅自己可见、好友圈 -->
+        <activity
+            android:name=".ui.activity.SendDyniamicPremissions"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- 文章页，发现——广场——小贴士 跳转的页面 -->
+        <activity
+            android:name=".ui.activity.ActivityTip"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.activity.TreadmillActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.activity.TrainDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!--扫码商品详情-->
+        <activity android:name=".ui.activity.GoodsInfoActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@mipmap/ic_information"
+        android:id="@+id/information"
+        android:title="资料管理"/>
+
+    <item
+        android:icon="@mipmap/ic_member"
+        android:id="@+id/member"
+        android:title="成员管理"/>
+</menu>

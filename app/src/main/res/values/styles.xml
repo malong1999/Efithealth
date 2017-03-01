@@ -1,0 +1,192 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorTextPrimary</item>
+        <item name="android:textColorSecondary">@color/colorTextThird</item>
+
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Home">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="GuideTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@mipmap/ic_splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <style name="MatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrapWrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--toolsBar BEGIN-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <!--toolsBar END-->
+
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">24.5dip</item>
+    </style>
+
+    <style name="TabBlackOrange">
+        <item name="android:textSize">@dimen/sz_16</item>
+    </style>
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorOrange</item>
+    </style>
+
+    <style name="Translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="MyLoadDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--//对话框是否有遮盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@null</item>
+        <!-- 背景是否模糊显示-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="MyNodataDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="TabOrange" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Theme.ToolBar.Menu" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 设置-弹窗的背景-颜色-->
+        <item name="android:colorBackground">#4f4f4f</item>
+        <item name="colorControlNormal">@color/white</item>
+        <!-- 字体的颜色-->
+        <item name="android:textColor">#ffffff</item>
+        <!-- 字体大小-->
+        <item name="android:textSize">18sp</item>
+
+        <!--&lt;!&ndash; 用于替换菜单的三个小白点，换成自已的图片&ndash;&gt;-->
+        <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+
+        <!-- 用于修改item默认的分割线-->
+        <item name="android:dropDownListViewStyle">@style/dropDownStyle</item>
+        <item name="dropDownListViewStyle">@style/dropDownStyle</item>
+
+        <!--用于控制menu弹出的位置，位于toolbar的下面，而不是上面-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+    <style name="OverflowButtonStyle" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_horiz_black_24dp</item>
+    </style>
+    <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <!--用于修改popmenu的分割线-->
+    <style name="dropDownStyle" parent="android:style/Widget.Holo.ListView.DropDown">
+        <!--<item name="android:listSelector">可添加选中背景颜色</item>-->
+        <item name="android:divider">#ff000000</item>
+        <item name="android:dividerHeight">0.5dp</item>
+    </style>
+
+    <style name="RedText">
+        <item name="android:textColor">#ff0000</item>
+    </style>
+    <style name="GreenText">
+        <item name="android:textColor">#2fa881</item>
+    </style>
+    <style name="Theme.ToolBar.Black.Menu" parent="Theme.ToolBar.Menu">
+        <!-- 设置-弹窗的背景-颜色-->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <!-- 字体的颜色-->
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+    <style name="BannerDefaultStyle">
+        <item name="banner_pointAutoPlayAble">true</item>
+        <item name="banner_pointAutoPlayInterval">3000</item>
+        <item name="banner_pageChangeDuration">800</item>
+        <item name="banner_tipTextSize">10sp</item>
+        <item name="banner_tipTextColor">@android:color/white</item>
+        <item name="banner_placeholderDrawable">@mipmap/ic_place_holder</item>
+    </style>
+
+    <!-- 分段显示-->
+    <declare-styleable name="SegmentControl">
+        <attr name="cornerRadius" format="dimension|reference" />
+        <attr name="colors" format="color|reference" />
+        <attr name="texts" format="string|reference" />
+        <attr name="android:textSize" />
+        <attr name="direction" format="enum">
+            <enum name="horizon" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="gaps" format="dimension|reference" />
+        <attr name="horizonGap" format="dimension|reference" />
+        <attr name="verticalGap" format="dimension|reference" />
+    </declare-styleable>
+
+
+    <style name="CustomDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否有标题 -->
+        <item name="android:windowNoTitle">false</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+</resources>

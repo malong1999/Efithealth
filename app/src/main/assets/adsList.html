@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<title isback="1" btn="0" navbar="0"></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			.adsList img {
+				width: 100%;
+				margin-bottom: 3px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script>
+			$(document).bind('mobileinit', function() {
+				$.mobile.pushStateEnabled = false;
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="adsList">
+			<!--<img id="img" style="display: none;" src="images/page/02.png" />-->
+			<img src="images/page/ads_01.png" onclick="clickItem()"/>
+			<img src="images/page/ads_02.png" onclick="clickItem()"/>
+			<img src="images/page/ads_03.png" onclick="clickItem()"/>
+		</div>
+	</body>
+	<script>
+	function clickItem(){
+		!window.mobile||window.mobile.gotoNewWindow("3","essayReview.html?eid=E000074");
+	}
+//		$().ready(function() {
+////			var imgs = $(".adsList img");
+//			//			setTimeout(function() {
+//			//				$.each(imgs, function(index, content) {
+//			//				console.info(content);
+//			////				content.src = "images/page/0" + (index + 1) + ".png";
+//			//				content.src="http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000086_1474611559516.png";
+//			//			});
+//			//			}, 1000);
+//			var asd = new Array(["http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000086_1474611559516.png",
+//				"http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000083_1474429568325.png", "http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000083_1474429710273.png", "http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000086_1474429615900.png", "http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/bdynamicimg/I000017_1461647390999_p.png"]);
+//			for(var i = 0; i < 100; i++) {
+//				var content = $("#img").clone();
+////				content.src="http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000086_1474611559516.png";
+//				content.attr("src","http://efithealthresource.oss-cn-beijing.aliyuncs.com/image/b_pcourse/PC000086_1474611559516.png");
+//				content.appendTo(".adsList");
+//				content.show();
+//				
+//			}
+//		});
+	</script>
+
+</html>

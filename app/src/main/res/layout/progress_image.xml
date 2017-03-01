@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@id/ly_root"
+              android:orientation="horizontal"
+              android:gravity="center_horizontal"
+              android:background="@color/transparent"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/loading_process_dialog_progressBar"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bga_refresh_loding"/>
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title isback="1" navbar="0" btn="0" ></title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/mframe.js"></script>
+<style>
+#myCanvas{
+		transform: scale(.5);
+		position: absolute;
+		left: 50%;
+		margin-left: -150px;
+		top: -10px;
+		z-index: 3;
+		transform:rotate(-1deg) scale(.5);
+		-webkit-transform:rotate(-1deg) scale(.5);
+		
+		
+}
+#onCanvas{
+	position: absolute;
+		left: 50%;
+		margin-left: -150px;
+		top: -10px;
+		z-index: 2;
+		transform:rotate(-1deg) scale(.5);
+		-webkit-transform:rotate(-1deg) scale(.5);
+}
+/*@media screen and (max-width:374px){
+	#myCanvas{
+		transform: rotate(225deg);
+		position: absolute;
+		left: 50%;
+		margin-left: -106px;
+	}
+}
+@media screen and (min-width:375px){
+	*/
+}
+</style>
+</head>
+<body>
+	<div class="indexView" style="text-shadow: none;" >
+		<div class="index_card">
+			<div class="content_parts">
+				<div><div style="height: 50px;"><span class="font_bigger" style="font-family: 'impact';letter-spacing: 2px;">115</span><span class="font_smaller">人</span></div><p>在店人数</p></div><em></em>
+				<div><div style="height: 50px;width: 100%;"><span id="num" class="font_bigger" style="font-family: 'impact';"></span><span class="font_bigger">/</span><span id="gcoursetimes" class="font_bigger" style="font-family: 'impact';"></span><span class="font_smaller">次</span></div><p id="clubname"></p></div><em></em>
+				<div><div style="height: 50px;"><span id="ordenddate" class="font_smaller datefont" style="font-family: 'impact';"></span></div><p>截止日期</p></div>
+			</div>
+			<canvas id="myCanvas" width="300px" height="300px"></canvas>
+			<canvas id="onCanvas" width="300px" height="300px"></canvas>
+		</div>
+	</div>
+</body>
+<script>
+window.onload=function(){
+	var canvas=document.getElementById("myCanvas");
+	var oncanvas=document.getElementById("onCanvas");
+	var context=myCanvas.getContext('2d');
+	var oncontext=onCanvas.getContext('2d');
+	var circleX=myCanvas.width/2; 
+	//圆心坐标X
+	var circleY=myCanvas.height/2;
+	/*圆心坐标Y*/
+	var pre=2*Math.PI/100; <!--把一个圆圈分成一百份，每次走1%-->
+	var speed=0.1;<!--设置速度每0.1s走1%-->
+	var onspeed=0.1;
+	//顶部圆环长度
+	var topRingSize = 67;
+	
+	//http://127.0.0.1:8020/newAssets/indexView_mem_card.html?viewHeight=215&top=30&bottom=30&memid=M000440
+	//&gcoursetimes=30&coursenum=5&ordenddate=2016-10-05
+	$("#ordenddate").text(parmData.ordenddate);//截止日期
+	$("#clubname").text(parmData.clubname);//俱乐部名称
+	$("#gcoursetimes").text(parmData.gcoursetimes);//总次数
+	var num = parmData.gcoursetimes-parmData.coursenum;//剩余次数
+	$("#num").text(num);
+	//设置橙色圆环长度
+	topRingSize = num/parmData.gcoursetimes*67;
+	
+	
+	//ringSize
+	
+	function bottomCircle(obj,color,length){
+		obj.save(); <!--先存储-->
+		obj.beginPath();
+		obj.lineCap="round";
+		obj.strokeStyle=color;
+		obj.arc(circleX,circleY,length,0,3*Math.PI);//画圆环
+		obj.stroke();
+		obj.closePath();
+		obj.restore(); <!--调用之前存储的-->
+	}
+	function topCircle(n,obj,color,length){
+		obj.save();
+		obj.beginPath();
+		obj.lineCap="round";
+		obj.strokeStyle=color; <!--圆环的颜色-->
+		obj.lineWidth=14; <!--圆环宽度-->
+		obj.arc(circleX,circleY,length,5*Math.PI/6,5*Math.PI/6+n*pre,false); <!--false：顺时针方向运动从无到有-->
+		obj.stroke();
+		obj.closePath();
+		obj.restore();
+	}
+	
+	function circle(){//绘制底下灰色圆环
+		window.requestAnimationFrame(circle,onCanvas); <!--requestAnimationFrame 是专门为实现高性能的帧动画而设计的一个API-->
+		oncontext.clearRect(0, 0, onCanvas.width, onCanvas.height); <!--清除上一次的动画，避免不停的覆盖-->
+		if(parmData.gcoursetimes>99){
+			bottomCircle(oncontext,"rgba(255,255,255,0)",130);
+			topCircle(onspeed,oncontext,"#6c6c6c",130);
+		}
+		else{
+			bottomCircle(oncontext,"rgba(255,255,255,0)",125);
+			topCircle(onspeed,oncontext,"#6c6c6c",125);
+		}
+		onspeed=67;//绘制百分之67的圆
+	}
+	
+	circle();
+	function drawCircle(){//绘制上面橘色圆环
+		window.requestAnimationFrame(drawCircle,myCanvas); <!--requestAnimationFrame 是专门为实现高性能的帧动画而设计的一个API-->
+		context.clearRect(0, 0, myCanvas.width, myCanvas.height); <!--清除上一次的动画，避免不停的覆盖-->
+		/*bottomCircle(context,"rgba(255,255,255,0)",100);
+		topCircle(speed,context,"#fd8634",100);*/
+		if(parmData.gcoursetimes>99){
+			if(num==0){
+				bottomCircle(context,"rgba(255,255,255,0)",130);
+				topCircle(speed,context,"#6c6c6c",130);
+			}else{
+				bottomCircle(context,"rgba(255,255,255,0)",130);
+				topCircle(speed,context,"#fd8634",130);
+			}
+			
+		}
+		else{
+			if(num==0){
+				bottomCircle(context,"rgba(255,255,255,0)",125);
+				topCircle(speed,context,"#6c6c6c",125);
+			}else{
+				bottomCircle(context,"rgba(255,255,255,0)",125);
+				topCircle(speed,context,"#fd8634",125);	
+			}
+			
+		}
+		if(speed<=topRingSize){//当大于预设的长度时动画停止
+			speed+=1.4;//橘色环速度
+		}
+		
+	} 
+	drawCircle();
+	var viewHeight=parseFloat(parmData.viewHeight);
+	var viewBottom=parseFloat(parmData.bottom);
+	var viewTop=parseFloat(parmData.top);
+	$(".index_card").css("height",viewHeight-viewBottom-viewTop+"px");
+	$(".indexView").css({"padding-top":viewTop+"px","height":viewHeight+"px"});  
+	$("#myCanvas").css("top",viewTop-78+"px");//定位顶层画布
+	$("#onCanvas").css("top",viewTop-78+"px");//定位底层画布
+	$(".indexView").bind("click",function(){
+		!window.mobile||window.mobile.gotoNewWindow("1","{memrole:clubadmin,tarid:"+parmData.clubmem+"}");
+	});
+}
+</script>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                xmlns:tools="http://schemas.android.com/tools"
+                                                android:id="@+id/ly_root"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/sz_100"
+                                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                android:background="@android:color/white"
+                                                app:mrl_rippleAlpha="0.1"
+                                                app:mrl_rippleColor="#585858"
+                                                app:mrl_rippleDelayClick="true"
+                                                app:mrl_rippleHover="true"
+                                                app:mrl_rippleOverlay="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="@dimen/sz_60"
+            android:layout_height="@dimen/sz_60"
+            tools:src="@mipmap/test_header"
+            android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/sz_10"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:layout_marginRight="@dimen/sz_10"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sz_30"
+                android:gravity="bottom"
+                tools:text="距您1.6KM"
+                android:textSize="@dimen/sz_14"
+                android:textColor="@color/colorTextThird"
+                android:layout_marginRight="@dimen/sz_20"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/sz_6"/>
+
+
+            <TextView
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_marginRight="@dimen/sz_100"
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_30"
+                tools:text="以健康俱乐部llllllllllllllllllllllll"
+                android:gravity="bottom"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/sz_18"
+                android:layout_marginTop="@dimen/sz_10"/>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="第三节课粉红色的空间啊反抗集散地恢复刻录机as的空间法拉利迪斯科解放了的空间撒"
+                android:textSize="@dimen/sz_14"
+                android:textColor="@color/colorTextThird"
+                android:lines="1"
+                android:ellipsize="end"
+                android:layout_below="@id/tv_name"
+                android:layout_marginTop="@dimen/sz_2"
+                android:layout_marginRight="@dimen/sz_30"/>
+
+            <RatingBar
+                android:id="@+id/rb_goods"
+                style="@style/MyRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sz_20"
+                android:layout_below="@id/tv_content"
+                android:numStars="5"
+                android:rating="3.5"
+                android:stepSize="0.1"
+                android:layout_marginTop="@dimen/sz_4"/>
+            <TextView
+                android:id="@+id/tv_star"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sz_20"
+                tools:text="(3.5)"
+                android:textSize="@dimen/sz_16"
+                android:textColor="@color/colorTextThird"
+                android:layout_toRightOf="@id/rb_goods"
+                android:layout_below="@id/tv_content"
+                android:layout_marginLeft="@dimen/sz_8"
+                android:layout_marginTop="@dimen/sz_4"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</com.balysv.materialripple.MaterialRippleLayout>

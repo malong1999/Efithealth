@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="GuideTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@mipmap/ic_splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorOrange</item>
+        <item name="android:fitsSystemWindows">true</item>
+
+    </style>
+
+</resources>

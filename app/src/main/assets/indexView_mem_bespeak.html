@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<title isback="1" navbar="0" btn="0" ></title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/mframe.js"></script>
+</head>
+<body>
+<div class="indexView" style="text-shadow: none;" >
+	<div class="index_res">
+		<p>预约</p>
+		<div class="classTable" id="bespeaks">
+			<p id="bespeak"><i id="coursename"></i><i id="begintime"></i></p>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+var pageindex = 1;
+var memid = getMemid();
+function initData() {
+	$.ajax({
+		type: "POST", //请求方式
+		url: serviceUrl + "mmyBespeak.do", //请求路径
+		cache: false,
+		data: {
+			pageIndex: pageindex++, //当前页码
+			memid: memid //当前用户id
+		},
+		dataType: 'JSON', //返回值类型
+		success: function(data) {
+			var msgFlag = data.msgFlag;
+			if (msgFlag == 1) {
+				var bespeaklist = data.bespeaklist;
+				//循环预约列表
+				$.each(bespeaklist, function(index, content) {
+					//只显示前3条
+					if(index<3){
+						var bespeak = $("#bespeak").clone();
+						bespeak.find("#coursename").text(content.coursename); //课程名
+						bespeak.find("#begintime").text(content.begintime); //课程时间
+						/*var str=content.begintime;
+						console.log(str.split(" ")[1]);*/
+						bespeak.show();
+						$(bespeak).appendTo($("#bespeaks"));
+					}
+				})
+			}
+		}
+	});
+}
+window.onload=function(){
+	//适配高度
+	var viewHeight=parseFloat(parmData.viewHeight);
+	var viewBottom=parseFloat(parmData.bottom);
+	var viewTop=parseFloat(parmData.top);
+	var width= $("#bespeaks").width();
+	$("#coursename").css("width",width-125+"px");
+	$(".index_res").css("height",viewHeight-viewBottom-viewTop+"px");
+	/*$(".indexView").css({"padding-top":viewTop+"px","padding-bottom":viewBottom+"px"});*/
+	$(".indexView").css({"padding-top":viewTop+"px","height":viewHeight+"px"});
+	$(".indexView").bind("click",function(){
+		!window.mobile||window.mobile.gotoBespeakList();	
+	});
+	initData();
+}
+
+</script>
+</html>

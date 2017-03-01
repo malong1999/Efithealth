@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:fitsSystemWindows="true"
+                                                 android:id="@+id/container"
+                                                 android:background="@color/white"
+                                                 tools:context="com.maxiaobu.healthclub.ui.activity.ClubDetailActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ctl_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sz_280"
+            android:background="@mipmap/bg_trainer_header"
+            app:collapsedTitleGravity="center"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_collapseMode="parallax"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="150"
+
+            >
+
+
+
+            <RelativeLayout
+                android:id="@+id/ly_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rl_layout_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="@dimen/sz_70">
+                    <ImageView
+                        android:id="@+id/iv_header"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="fitXY"
+                        tools:src="@mipmap/test_header"
+                        android:background="@android:color/transparent"/>
+                    <ImageView
+                        android:id="@+id/iv_flag"
+                        android:layout_width="@dimen/sz_20"
+                        android:layout_height="@dimen/sz_20"
+                        android:src="@mipmap/ic_club_authentication"
+                        android:layout_alignRight="@id/iv_header"
+                        android:layout_alignBottom="@id/iv_header"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/rl_layout_head"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginRight="@dimen/sz_50"
+                    android:layout_marginLeft="@dimen/sz_50"
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    tools:text="杰西卡asdsadasdsadsdsadsadsadasdsadsdsdad"
+                    android:textSize="@dimen/sz_18"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/sz_8"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_layout_attation"
+                    android:layout_below="@id/tv_name"
+                    android:layout_marginTop="@dimen/sz_8"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_follow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="关注: 18"
+                        android:layout_marginRight="@dimen/sz_16"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sz_14"/>
+
+                    <TextView
+                        android:id="@+id/tv_fans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="粉丝: 18"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sz_14"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_toRightOf="@id/ll_layout_attation"
+                    android:layout_marginTop="@dimen/sz_4"
+                    android:layout_below="@id/tv_name"
+                    android:layout_marginLeft="@dimen/sz_16"
+                    android:id="@+id/item_mutual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_person"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/sz_2">
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/sz_6"
+                        android:id="@+id/item_mutual_image"
+                        android:layout_width="@dimen/sz_14"
+                        android:layout_height="@dimen/sz_16"
+                        android:src="@mipmap/ic_add_org"/>
+
+                    <TextView
+                        android:layout_marginBottom="@dimen/sz_2"
+                        android:layout_marginTop="@dimen/sz_2"
+                        android:layout_marginRight="@dimen/sz_6"
+                        android:layout_marginLeft="@dimen/sz_4"
+                        android:gravity="center"
+                        android:id="@+id/item_mutual_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="@dimen/sz_12"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/ll_layout_attation"
+                    android:layout_marginRight="@dimen/sz_50"
+                    android:layout_marginLeft="@dimen/sz_50"
+                    android:id="@+id/tv_signature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/sz_10"
+                    tools:text="kjdsahflkjsdahflkjsdahlfkjhssadasdasdsdasdsadasdsadsdsdsadasdasd"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:paddingBottom="@dimen/sz_10"/>
+
+            </RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@mipmap/ic_navigation_icon"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:paddingRight="@dimen/sz_60"
+                >
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorTextPrimary"
+            app:tabTextColor="@color/colorTextPrimary"
+            app:tabTextAppearance="@style/TabBlackOrange"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <!--选择菜单-->
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/sz_24"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@mipmap/test_header"
+        app:menu_backgroundColor="#00000000"
+        app:menu_colorNormal="@color/colorOrange"
+        app:menu_colorPressed="@color/colorOrange"
+        app:menu_colorRipple="#99FFFFFF"
+        app:menu_labels_ellipsize="end"
+        app:menu_labels_position="right"
+        app:menu_labels_singleLine="true"
+        >
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_pull_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_fab_pull_black"
+            app:fab_colorNormal="@color/colorOrange"
+            app:fab_colorPressed="@color/colorOrange"
+            app:fab_colorRipple="#99FFFFFF"
+            android:visibility="gone"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_subscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_fab_order"
+            app:fab_colorNormal="@color/colorOrange"
+            app:fab_colorPressed="@color/colorOrange"
+            app:fab_colorRipple="#99FFFFFF"
+            android:visibility="gone"/>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_bind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_fab_bind"
+            app:fab_colorNormal="@color/colorOrange"
+            app:fab_colorPressed="@color/colorOrange"
+            app:fab_colorRipple="#99FFFFFF"
+            android:visibility="gone"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_fab_talk"
+            app:fab_colorNormal="@color/colorOrange"
+            app:fab_colorPressed="@color/colorOrange"
+            app:fab_colorRipple="#99FFFFFF"
+            />
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+    <!--个人按钮-->
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/sz_16"
+        android:paddingBottom="@dimen/sz_10"
+        android:paddingLeft="@dimen/sz_10"
+        android:paddingRight="@dimen/sz_10"
+        app:borderWidth="0dp"
+        android:src="@mipmap/ic_fab"
+        app:fab_colorNormal="@color/colorOrange"
+        app:fab_colorPressed="@color/colorOrange"
+        app:fab_colorRipple="#99FFFFFF"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e0000000"
+        android:transitionName="@string/transition"
+        android:visibility="invisible"
+        android:layout_marginTop="-30dp"
+        />
+
+
+</android.support.design.widget.CoordinatorLayout>

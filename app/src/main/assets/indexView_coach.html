@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<title isback="1" navbar="0" btn="0" ></title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/mframe.js"></script>
+</head>
+<body>
+<div class="view_coach" >
+	<img src="images/page/coachView.png" />
+</div>
+</body>
+<script>
+	var viewHeight=parseFloat(parmData.viewHeight);
+	var viewBottom=parseFloat(parmData.bottom);
+	var viewTop=parseFloat(parmData.top);
+	$(".view_coach img").css({"height":viewHeight+"px"}); 
+	$(".view_coach img").on("click",function(){window.mobile.gotoClubList();});
+
+</script>
+</html>

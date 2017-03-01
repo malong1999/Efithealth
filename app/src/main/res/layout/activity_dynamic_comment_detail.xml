@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ly_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ll_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_common"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mql_actionbar_height"
+            android:background="@color/colorPrimary"
+            app:collapseIcon="@mipmap/ic_navigation_icon"
+            app:navigationIcon="@mipmap/ic_navigation_icon"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+
+            <TextView
+                android:id="@+id/tv_title_common"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/swipeToLoadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_select">
+
+        <com.maxiaobu.healthclub.ui.weiget.refresh.RefreshHeaderView
+            android:id="@+id/swipe_refresh_header"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/swipe_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <com.maxiaobu.healthclub.ui.weiget.refresh.LoadMoreFooterView
+            android:id="@+id/swipe_load_more_footer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"/>
+
+
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#F9f9f9">
+
+        <TextView
+            android:id="@+id/send_text"
+            android:layout_width="@dimen/sz_80"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingBottom="@dimen/sz_10"
+            android:paddingTop="@dimen/sz_6"
+            android:text="发布"
+            android:textColor="@color/gray585858"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/sz_6"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:layout_marginTop="@dimen/sz_8"
+            android:layout_toLeftOf="@id/send_text"
+            android:background="@drawable/bg_edittext"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/image_text"
+                android:layout_width="@dimen/sz_16"
+                android:layout_height="@dimen/sz_16"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/sz_6"
+                android:background="@mipmap/ic_dynamic_tex"/>
+
+            <EditText
+                android:id="@+id/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/sz_6"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="说点什么吧"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/sz_6"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/sz_12"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

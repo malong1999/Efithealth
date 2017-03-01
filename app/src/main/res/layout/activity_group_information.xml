@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/grayBackgroud"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_common"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:collapseIcon="@mipmap/ic_navigation_icon"
+            app:navigationIcon="@mipmap/ic_navigation_icon"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/tv_title_common"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_gravity="right"
+                android:id="@+id/save_group_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="保存"
+                android:textColor="@color/white"
+                style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:layout_marginRight="@dimen/sz_20"/>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:textColor="@color/colorTextHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="群简介 :"
+        android:layout_marginBottom="@dimen/sz_8"
+        android:layout_marginLeft="@dimen/sz_24"
+        android:layout_marginTop="@dimen/sz_24"
+        />
+
+    <EditText
+        android:paddingLeft="@dimen/sz_24"
+        android:paddingRight="@dimen/sz_20"
+        android:paddingTop="@dimen/sz_14"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        android:textColorHint="@color/gray"
+        android:inputType="textMultiLine"
+        style="?android:attr/textViewStyle"
+        android:id="@+id/group_summary"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/sz_92"/>
+
+    <TextView
+        android:textColor="@color/colorTextHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="群公告 :"
+        android:layout_marginBottom="@dimen/sz_8"
+        android:layout_marginLeft="@dimen/sz_24"
+        android:layout_marginTop="@dimen/sz_30"
+        />
+
+    <EditText
+        android:paddingLeft="@dimen/sz_24"
+        android:paddingRight="@dimen/sz_20"
+        android:paddingTop="@dimen/sz_14"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        android:textColorHint="@color/gray"
+        android:inputType="textMultiLine"
+        style="?android:attr/textViewStyle"
+        android:id="@+id/group_notice"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/sz_92"/>
+
+</LinearLayout>

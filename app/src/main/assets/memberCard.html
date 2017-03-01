@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<title isback="1" navbar="0" btn="0">会员卡</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script>
+			$(document).bind('mobileinit', function() {
+				$.mobile.pushStateEnabled = false;
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/mframe.js"></script>
+	</head>
+
+	<body>
+		<div id="memberCard" data-role="page" data-enhance="true" style="background: #f1f1f1;">
+			<div id="card" data-role="content" class="memberCard" style="box-shadow:none;display: none;">
+				<div class="card_mem">
+					<img src="images/page/memcard.png" />
+					<div class="card_up">
+						<div class="card_title">
+							<span id="coursename"></span>
+							<p id="clubname"></p>
+						</div>
+					</div>
+					<div class="card_down">
+						<p><i>持卡人：</i><i id="membername" style="float: none;"></i></p>
+						<p><i>剩余次数：</i><i><i id="num"></i>次</i></p>
+						<p><i>截止日期：</i><i id="ordenddate"></i></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+//		http://127.0.0.1:8020/newAssets/memberCard.html?memid=M000440
+			$.ajax({
+				type: "post",
+				url: serviceUrl + "mmemCard.do",
+				data: {
+					memid: getMemid() 
+				},
+				dataType: 'JSON',
+				beforeSend: function() {
+					!window.mobile || window.mobile.Loading(true);
+				},
+				success: function(data) {
+					if(data.msgFlag==1){
+						console.info(data);
+						var temp = $("#card");
+						var cardslist=data.cardslist;
+						//没有会员卡信息
+						if(cardslist.length==0){
+							var picIn=$("<div class='noneCard'><img src='images/page/member_card.png' /><p>您还未加入任何俱乐部</p><div>")
+			                		picIn.appendTo("#memberCard");
+						}
+						//循环会员卡信息
+						$.each(cardslist, function (index, content){
+							var card = temp.clone();
+							card.find("#membername").text(content.realname);//持卡人
+							card.find("#ordenddate").text(formatdate(content.ordenddate));//截止日期
+							card.find("#coursename").text(content.coursename);//卡名
+							card.find("#clubname").text(content.clubname);//俱乐部名称
+							card.find("#num").text(content.gcoursetimes-content.coursenum);//剩余次数
+							card.appendTo("#memberCard");
+							card.show();
+	//						content.conphone//俱乐部联系电话
+						});
+						
+					}
+				},
+				complete: function() {
+					!window.mobile || window.mobile.Loading(false);
+				}
+			});
+		</script>
+	</body>
+
+</html>

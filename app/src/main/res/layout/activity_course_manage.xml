@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.CourseManageActivity">
+
+
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_common"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:collapseIcon="@mipmap/ic_navigation_icon"
+                app:navigationIcon="@mipmap/ic_navigation_icon"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                >
+
+                <TextView
+                    android:id="@+id/tv_title_common"
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"/>
+            </android.support.v7.widget.Toolbar>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_50"
+                android:background="@color/colorTextPrimary"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextAppearance="@style/TabBlackOrange"
+                app:tabTextColor="@color/white"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/float_action_button"
+        android:layout_width="@dimen/sz_50"
+        android:layout_height="@dimen/sz_50"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/sz_24"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_release_course"
+        />
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title isback="1" navbar="0" btn="0" ></title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/mframe.js"></script>
+</head>
+<body>
+	
+	<div class="indexView" style="text-shadow: none;" >
+		<div class="index_in">
+			<p>您还未加入任何俱乐部</p>
+			<div class="btn_club">
+				<p id="btn">加入俱乐部</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		var viewHeight=parseFloat(parmData.viewHeight);
+		var viewBottom=parseFloat(parmData.bottom);
+		var viewTop=parseFloat(parmData.top);
+		$(".index_in").css("height",viewHeight-viewBottom-viewTop+"px");
+		/*$(".indexView").css({"padding-top":viewTop+"px","padding-bottom":viewBottom+"px"});*/
+		$(".indexView").css({"padding-top":viewTop+"px","height":viewHeight+"px"}); 
+		$("#btn").bind("click",function(){window.mobile.gotoClubList();});
+	</script>
+</body>
+
+</html>

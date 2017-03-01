@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                xmlns:tools="http://schemas.android.com/tools"
+                                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                android:orientation="vertical"
+                                                app:mrl_rippleDelayClick="false"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/ly_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="@dimen/sz_70"
+            android:layout_height="@dimen/sz_70"
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_marginTop="@dimen/sz_12"
+            android:src="@mipmap/test_header"
+            android:scaleType="fitXY"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sz_14"
+            android:layout_marginTop="@dimen/sz_10"
+            >
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="力量训练"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/sz_18"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/sz_20"
+                android:text="2000元"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/sz_18"
+                />
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="2dp"
+                android:text="10次/15天"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_num"
+                android:layout_marginTop="2dp"
+                tools:text="名额：38人/时长：30分钟"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_more_club"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多俱乐部可选"
+                android:textColor="@color/colorTextThird"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/sz_16"
+                android:layout_below="@id/tv_num"
+                android:drawablePadding="@dimen/sz_2"
+                android:drawableLeft="@mipmap/ic_location_club"/>
+            <TextView
+                android:id="@+id/tv_club_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_time"
+                android:layout_marginTop="1dp"
+                android:text="易建康俱乐部"
+                android:textColor="@color/colorTextThird"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_club_name"
+                android:layout_marginRight="@dimen/sz_80"
+                android:layout_marginTop="1dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="易建康俱乐部符合肯德基后方可倒计时"
+                android:textColor="@color/colorTextThird"
+                android:textSize="15sp"
+                android:paddingBottom="@dimen/sz_20"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray"
+                android:paddingTop="@dimen/sz_20"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>

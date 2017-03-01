@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe_layout"
+    tools:context="com.maxiaobu.healthclub.ui.activity.GroupDetailsActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_common"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/Theme.ToolBar.Menu"
+                app:collapseIcon="@mipmap/ic_navigation_icon"
+                app:navigationIcon="@mipmap/ic_navigation_icon">
+
+                <TextView
+                    android:id="@+id/tv_title_common"
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/white"/>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <com.maxiaobu.healthclub.ui.weiget.observablescrollview.ObservableScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FCFCFC"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sz_80"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/group_image"
+                        android:layout_width="@dimen/sz_56"
+                        android:layout_height="@dimen/sz_56"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/sz_20"
+                        android:scaleType="fitXY"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/sz_12"
+                        android:layout_toRightOf="@id/group_image">
+
+                        <TextView
+                            android:id="@+id/group_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="奕健康跑步群"
+                            android:textSize="@dimen/sz_16"/>
+
+                        <TextView
+                            android:id="@+id/group_classify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/group_name"
+                            android:layout_marginTop="@dimen/sz_8"
+                            android:text="分类 :"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/sz_12"/>
+
+                        <TextView
+                            android:id="@+id/group_classify_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/group_name"
+                            android:layout_marginLeft="@dimen/sz_10"
+                            android:layout_marginTop="@dimen/sz_8"
+                            android:layout_toRightOf="@id/group_classify"
+                            tools:text="跑步"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/sz_12"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/group_code_rl"
+                        android:layout_width="@dimen/sz_40"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/sz_10">
+
+                        <ImageView
+                            android:id="@+id/group_code"
+                            android:layout_width="@dimen/sz_20"
+                            android:layout_height="@dimen/sz_20"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_mine_two_code"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/group_message_con"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sz_14"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/sz_4"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleColor="#585858"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleDimension="10dp"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/group_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sz_50"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/sz_20"
+                            android:text="消息"
+                            android:textSize="@dimen/sz_16"/>
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="@dimen/sz_18"
+                            android:layout_height="@dimen/sz_18"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/sz_20"
+                            android:src="@mipmap/ic_arrow_right"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/group_intoUser_container"
+                            android:layout_width="@dimen/sz_46"
+                            android:layout_height="@dimen/sz_46"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/sz_8"
+                            android:layout_toLeftOf="@id/imageView3">
+
+                            <ImageView
+                                android:id="@+id/group_intoUser_avatar"
+                                android:layout_width="@dimen/sz_36"
+                                android:layout_height="@dimen/sz_36"
+                                android:layout_centerInParent="true"
+                                android:scaleType="fitXY"
+                                tools:src="@drawable/ease_default_avatar"/>
+
+                            <ImageView
+                                android:id="@+id/unread_msg_number"
+                                android:layout_width="@dimen/sz_8"
+                                android:layout_height="@dimen/sz_8"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/sz_4"
+                                android:layout_marginTop="@dimen/sz_10"
+                                tools:background="@mipmap/ic_unread_message"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sz_14"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/group_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sz_20"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:text="简介 :"
+                        android:textSize="@dimen/sz_16"/>
+
+                    <TextView
+                        android:id="@+id/group_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/sz_26"
+                        android:layout_marginLeft="@dimen/sz_12"
+                        android:layout_marginRight="@dimen/sz_40"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:layout_toRightOf="@id/group_text"
+                        android:lineSpacingExtra="@dimen/sz_6"
+                        tools:text="跑出健康、跑出美、跑出一双大长腿。顺口溜你不看下面地址你也知道这个群是我国哪个省份的 "
+                        android:textSize="@dimen/sz_16"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_below="@id/group_summary"
+                        android:background="@color/gray"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/group_tex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sz_20"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:text="地址 :"
+                        android:textSize="@dimen/sz_16"/>
+
+                    <TextView
+                        android:id="@+id/group_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/sz_26"
+                        android:layout_marginLeft="@dimen/sz_12"
+                        android:layout_marginRight="@dimen/sz_40"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:layout_toRightOf="@id/group_tex"
+                        android:lineSpacingExtra="@dimen/sz_6"
+                        tools:text="沈阳市和平区市政府大路北三经街北市家园3号楼1单元1601"
+                        android:textSize="@dimen/sz_16"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_below="@id/group_address"
+                        android:background="@color/gray"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/group_te"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sz_20"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:text="公告 :"
+                        android:textSize="@dimen/sz_16"/>
+
+                    <TextView
+                        android:id="@+id/group_notice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/sz_26"
+                        android:layout_marginLeft="@dimen/sz_12"
+                        android:layout_marginRight="@dimen/sz_40"
+                        android:layout_marginTop="@dimen/sz_18"
+                        android:layout_toRightOf="@id/group_te"
+                        android:lineSpacingExtra="@dimen/sz_6"
+                        tools:text="跑出健康、跑出美、跑出一双大长腿。顺口溜你不看下面地址你也知道这个群是我国哪个省份的 "
+                        android:textSize="@dimen/sz_16"/>
+
+                </RelativeLayout>
+
+                <com.maxiaobu.healthclub.ui.weiget.gridview.MyGridView
+                    android:id="@+id/group_gridView"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sz_14"
+                    android:numColumns="4"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/sz_14"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/sz_4"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleColor="#585858"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleDimension="10dp"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/group_members_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sz_50"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:id="@+id/group_members"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/sz_20"
+                            android:text="全部群成员"
+                            android:textSize="@dimen/sz_16"/>
+
+
+                        <TextView
+                            android:id="@+id/group_members_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/group_members"
+                            android:textSize="@dimen/sz_16"/>
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="@dimen/sz_18"
+                            android:layout_height="@dimen/sz_18"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/sz_20"
+                            android:src="@mipmap/ic_arrow_right"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+                <RelativeLayout
+                    android:layout_marginBottom="@dimen/sz_40"
+                    android:id="@+id/group_notifi_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sz_50"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/group_notifi_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/sz_20"
+                        android:text="群消息通知"
+                        android:textSize="@dimen/sz_16"/>
+
+
+                    <maxiaobu.easeui.widget.EaseSwitchButton
+                        android:id="@+id/switch_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/sz_20"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sz_80"
+                    android:background="@color/white">
+
+                    <Button
+                        android:id="@+id/group_cancle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sz_54"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/sz_6"
+                        android:layout_marginRight="@dimen/sz_6"
+                        android:background="@drawable/bg_food_order_select"
+                        android:gravity="center"
+                        android:text="退出该群"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sz_16"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </com.maxiaobu.healthclub.ui.weiget.observablescrollview.ObservableScrollView>
+    </LinearLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

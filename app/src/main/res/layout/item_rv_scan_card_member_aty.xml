@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/ly_root"
+                android:layout_marginBottom="@dimen/sz_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="@dimen/sz_314"
+        android:layout_height="@dimen/sz_170"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/ic_scan_card_mem"
+        android:layout_marginTop="@dimen/sz_10"
+        >
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/sz_40"
+            android:layout_height="@dimen/sz_40"
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_marginTop="@dimen/sz_20"
+            android:src="@mipmap/ic_scan_card_icon"/>
+
+        <TextView
+            android:id="@+id/tv_club_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sz_20"
+            android:layout_marginTop="@dimen/sz_30"
+            android:layout_toRightOf="@id/iv_icon"
+            android:textColor="@color/white"
+            tools:text="sadflkjsdakfj;lsdkjflksjdf"
+            />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/sz_20"
+            android:layout_marginRight="@dimen/sz_20"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sz_12"
+            tools:text="剩余数次"
+
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_number"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/sz_10"
+            android:layout_marginRight="@dimen/sz_20"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sz_12"
+            tools:text="余额500"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_number"
+            android:layout_alignBottom="@+id/tv_number"
+            android:layout_alignLeft="@+id/iv_icon"
+            android:layout_alignStart="@+id/iv_icon"
+            android:text="2016.1.1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sz_12"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

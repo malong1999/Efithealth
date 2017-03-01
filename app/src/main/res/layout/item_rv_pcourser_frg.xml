@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/ly_root"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:background="@drawable/button_rect_list_normal"
+    >
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="@dimen/sz_70"
+        android:layout_height="@dimen/sz_70"
+        android:layout_marginLeft="@dimen/sz_20"
+        android:layout_marginTop="@dimen/sz_12"
+        android:scaleType="fitXY"
+        tools:src="@mipmap/test_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sz_14"
+        android:layout_marginTop="@dimen/sz_10"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="力量训练"
+            android:textColor="@color/colorTextPrimary"
+            android:maxEms="8"
+            android:textSize="@dimen/sz_18"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/sz_20"
+            tools:text="2000元"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/sz_18"
+            />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="2dp"
+            tools:text="10次/15天"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_more_club"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_num"
+            android:layout_marginTop="@dimen/sz_16"
+            android:drawableLeft="@mipmap/ic_location_club"
+            android:drawablePadding="@dimen/sz_2"
+            tools:text="更多俱乐部可选"
+            android:textColor="@color/colorTextThird"
+            android:textSize="15sp"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/tv_club_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_num"
+            android:layout_marginTop="1dp"
+            tools:text="易建康俱乐部"
+            android:textColor="@color/colorTextThird"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_club_name"
+            android:layout_marginRight="@dimen/sz_80"
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingBottom="@dimen/sz_20"
+            tools:text="易建康俱乐部符合肯德基后方可倒计时"
+            android:textColor="@color/colorTextThird"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray"
+            android:paddingTop="@dimen/sz_20"/>
+    </RelativeLayout>
+
+</LinearLayout>

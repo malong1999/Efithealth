@@ -1,0 +1,260 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/ly_root"
+             android:background="@color/white"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.maxiaobu.healthclub.ui.activity.HomeActivity">
+
+
+    <com.maxiaobu.healthclub.ui.weiget.MqlHorRecyclerview
+        android:id="@+id/sv_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <Space
+                android:id="@+id/view_place_holder"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:clickable="false"
+                android:focusable="false"/>
+
+            <!--精选内容-->
+            <LinearLayout
+                android:id="@+id/ly_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_56"
+                android:layout_below="@id/view_place_holder"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginRight="@dimen/sz_10"
+                    android:text="精选内容"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/gray"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@id/ly_content"
+                android:overScrollMode="never"/>
+
+            <!--精品推荐-->
+            <LinearLayout
+                android:id="@+id/ly_Recommend"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_56"
+                android:layout_below="@id/rv_horizontal"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/sz_10"
+                    android:layout_marginRight="@dimen/sz_10"
+                    android:text="精品推荐"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/gray"/>
+            </LinearLayout>
+
+            <WebView
+                android:id="@id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ly_Recommend"/>
+
+        </LinearLayout>
+    </com.maxiaobu.healthclub.ui.weiget.MqlHorRecyclerview>
+    <!--折叠布局webview-->
+    <RelativeLayout
+        android:id="@+id/ly_head"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+
+
+        >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/page_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            app:ci_animator="@anim/indicator_animator"
+            app:ci_animator_reverse="@anim/indicator_animator_reverse"
+            app:ci_drawable="@drawable/black_radius_square"
+            app:ci_height="3dp"
+            app:ci_margin="4dp"
+            app:ci_width="24dp"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_bar_place_holder"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0"
+        android:background="#3A3A3A"/>
+
+    <!--头像-->
+    <RelativeLayout
+        android:id="@+id/ly_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:background="@color/transparent"
+        >
+
+        <TextView
+            android:id="@+id/tv_club_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sz_8"
+            android:layout_marginTop="@dimen/sz_18"
+            android:layout_toRightOf="@+id/iv_club_avatar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sz_16"
+            tools:text="xxxxx俱乐部"/>
+
+        <ImageView
+            android:id="@+id/iv_club_avatar"
+            android:layout_width="@dimen/sz_60"
+            android:layout_height="@dimen/sz_60"
+            android:layout_marginLeft="15dp"
+            android:scaleType="centerInside"
+            tools:src="@mipmap/test_header"
+
+
+            />
+
+        <TextView
+            android:id="@+id/tv_club_time_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginTop="@dimen/sz_18"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sz_16"
+            android:visibility="invisible"
+            tools:text="2061/1./ 1"/>
+
+    </RelativeLayout>
+
+    <!--toolsBar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/sz_10">
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="@dimen/sz_20"
+            android:layout_height="@dimen/sz_20"
+            android:layout_gravity="top"
+            android:layout_marginLeft="@dimen/sz_10"
+            android:src="@mipmap/ic_search"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/iv_title"
+            android:layout_width="@dimen/sz_90"
+            android:layout_height="@dimen/sz_10"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="top"
+            android:layout_marginTop="@dimen/sz_6"
+            android:src="@mipmap/ic_home_title_white"
+            />
+
+        <ImageView
+            android:id="@+id/iv_two_code"
+            android:layout_width="@dimen/sz_34"
+            android:layout_height="@dimen/sz_34"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/sz_10"
+            android:layout_marginTop="-5dp"
+            android:padding="@dimen/sz_6"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_home_scan"/>
+    </RelativeLayout>
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/fab_right"
+        android:layout_width="@dimen/sz_46"
+        android:layout_height="@dimen/sz_46"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="224dp"
+        android:src="@mipmap/ic_arrow_right_black"
+        app:cb_color="@color/colorOrange"
+        app:cb_pressedRingWidth="6dip"
+        android:visibility="gone"
+        />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/fab_left"
+        android:layout_width="@dimen/sz_46"
+        android:layout_height="@dimen/sz_46"
+        android:layout_gravity="right"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="224dp"
+        android:src="@mipmap/ic_arrow_left_black"
+        app:cb_color="@color/colorOrange"
+        app:cb_pressedRingWidth="6dip"
+        android:visibility="gone"/>
+
+
+</FrameLayout>

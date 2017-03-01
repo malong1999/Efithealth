@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/ly_root"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sz_50"
+                android:background="@color/grayBackgroud">
+    <TextView
+        android:id="@+id/tv_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="1"
+        android:textColor="@color/colorTextHint"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/sz_24"/>
+    <TextView
+        android:id="@+id/tv_times"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="10次，"
+        android:textColor="@color/colorTextThird"
+        android:layout_toRightOf="@id/tv_group"
+        android:layout_marginLeft="@dimen/sz_20"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:id="@+id/tv_strength"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="200斤"
+        android:textColor="@color/colorTextThird"
+        android:layout_toRightOf="@id/tv_times"
+        android:layout_marginLeft="@dimen/sz_20"
+        android:gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_data_entry_content"
+        android:layout_alignParentRight="true"
+        android:paddingTop="@dimen/sz_20"
+        android:paddingBottom="@dimen/sz_20"
+        android:paddingRight="@dimen/sz_16"
+        android:paddingLeft="@dimen/sz_16"
+      />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray"
+        android:layout_alignParentBottom="true"
+        />
+
+
+
+</RelativeLayout>
