@@ -694,11 +694,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <!--扫码商品详情-->
-        <activity android:name=".ui.activity.GoodsInfoActivity"
+        <!-- 扫码商品详情 -->
+        <activity
+            android:name=".ui.activity.GoodsInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.activity.GoodsPayActivity"
                   android:screenOrientation="portrait"
                   android:theme="@style/AppTheme.NoActionBar"/>
-
     </application>
 
 </manifest>
